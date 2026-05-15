@@ -13,6 +13,8 @@ body{
     background:#F5F1EB;
 }
 
+/* HEADER */
+
 .header{
     background:black;
     color:white;
@@ -39,6 +41,8 @@ body{
 .header a:hover{
     color:red;
 }
+
+/* FORM SECTION */
 
 .form-container{
     width:420px;
@@ -85,6 +89,7 @@ body{
     box-shadow:0 0 8px rgba(255,0,0,0.3);
 }
 
+/* MOBILE NUMBER SECTION */
 
 .mobile-group{
     display:flex;
@@ -98,6 +103,8 @@ body{
 .mobile-group input{
     width:65%;
 }
+
+/* BUTTON */
 
 .register-btn{
     width:100%;
@@ -116,6 +123,8 @@ body{
     background:black;
     transform:scale(1.03);
 }
+
+/* LOGIN TEXT */
 
 .bottom-text{
     text-align:center;
@@ -175,6 +184,7 @@ body{
 
 <body>
 
+<!-- HEADER -->
 
 <div class="header">
 
@@ -189,6 +199,7 @@ body{
 
 </div>
 
+<!-- REGISTRATION FORM -->
 
 <div class="form-container">
 
@@ -196,21 +207,28 @@ body{
 
     <form>
 
+        <!-- FULL NAME -->
+
         <div class="input-box">
             <label>Full Name</label>
             <input type="text" placeholder="Enter your full name" required>
         </div>
+
+        <!-- EMAIL -->
 
         <div class="input-box">
             <label>Email</label>
             <input type="email" placeholder="Enter your email" required>
         </div>
 
+        <!-- PASSWORD -->
 
         <div class="input-box">
             <label>Password</label>
             <input type="password" placeholder="Create password" required>
         </div>
+
+        <!-- GENDER -->
 
         <div class="input-box">
             <label>Gender</label>
@@ -224,6 +242,7 @@ body{
 
         </div>
 
+        <!-- MOBILE NUMBER -->
 
         <div class="input-box">
 
@@ -244,6 +263,7 @@ body{
 
         </div>
 
+        <!-- BUTTON -->
 
         <button class="register-btn">
             Register
@@ -251,11 +271,14 @@ body{
 
     </form>
 
+    <!-- SIGN IN -->
 
     <div class="bottom-text">
         Already have an account?
         <a href="#">Sign In</a>
     </div>
+
+    <!-- SOCIAL LOGIN -->
 
     <div class="social-login">
 
