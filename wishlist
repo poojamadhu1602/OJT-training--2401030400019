@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>POZARA Wishlist</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#F5F1EB;
+}
+
+/* TOP HEADER */
+
+.top-header{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:8px;
+    font-size:14px;
+}
+
+/* MAIN HEADER */
+
+.header{
+    background:#F5F1EB;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:35px;
+    font-weight:bold;
+    color:#ff6600;
+}
+
+.header-right a{
+    text-decoration:none;
+    color:black;
+    margin-left:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.header-right a:hover{
+    color:red;
+}
+
+/* MAIN CATEGORY BAR */
+
+.main-categorybar{
+    background:black;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 30px;
+}
+
+.main-right{
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+
+.main-right a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:bold;
+    transition:0.3s;
+    position:relative;
+}
+
+.main-right a:hover{
+    color:red;
+}
+
+/* SEARCH BAR */
+
+.main-center{
+    flex-grow:1;
+    display:flex;
+    justify-content:center;
+}
+
+.searchbar{
+    display:flex;
+}
+
+.searchbar input{
+    padding:8px 12px;
+    border:none;
+    outline:none;
+    width:220px;
+    border-radius:4px 0 0 4px;
+}
+
+.searchbar button{
+    border:none;
+    background:red;
+    color:white;
+    padding:8px 15px;
+    cursor:pointer;
+    font-weight:bold;
+    border-radius:0 4px 4px 0;
+}
+
+.searchbar button:hover{
+    background:white;
+    color:black;
+}
+
+/* ICONS */
+
+.main-left{
+    display:flex;
+    gap:25px;
+}
+
+.main-left a{
+    color:white;
+    font-size:20px;
+    transition:0.3s;
+}
+
+.main-left a:hover{
+    color:red;
+    transform:scale(1.2);
+}
+
+/* ACTIVE WISHLIST */
+
+.wishlist-active{
+    color:red !important;
+    transform:scale(1.2);
+}
+
+/* TITLE */
+
+.title{
+    text-align:center;
+    padding:40px 20px 10px;
+}
+
+.title h1{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:gray;
+    font-size:18px;
+}
+
+/* WISHLIST PRODUCTS */
+
+.wishlist-products{
+    width:90%;
+    margin:40px auto 80px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:35px;
+}
+
+/* PRODUCT CARD */
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.image-box{
+    position:relative;
+}
+
+.image-box img{
+    width:100%;
+    height:370px;
+    object-fit:cover;
+}
+
+/* BRANDING */
+
+.brand-print{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.7);
+    color:white;
+    padding:8px 22px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+/* HEART ICON */
+
+.heart-icon{
+    position:absolute;
+    top:18px;
+    right:18px;
+    width:42px;
+    height:42px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:red;
+    font-size:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* DETAILS */
+
+.details{
+    padding:22px;
+}
+
+.details h3{
+    margin:0;
+    font-size:22px;
+}
+
+.type{
+    color:gray;
+    margin:10px 0;
+}
+
+.price{
+    color:red;
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    gap:10px;
+}
+
+.cart,
+.remove{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:7px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.cart{
+    background:black;
+    color:white;
+}
+
+.cart:hover{
+    background:red;
+}
+
+.remove{
+    background:red;
+    color:white;
+}
+
+.remove:hover{
+    background:black;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP HEADER -->
+
+<div class="top-header">
+    Free Express Shipping On Orders Above ₹999
+</div>
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="logo">
+        POZARA
+    </div>
+
+    <div class="header-right">
+
+        <a href="#">Sign In</a>
+        <a href="#">Help</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+
+    </div>
+
+</div>
+
+<!-- MAIN CATEGORY BAR -->
+
+<div class="main-categorybar">
+
+    <div class="main-right">
+
+        <a href="#">
+            👩🏻Women
+        </a>
+
+        <a href="#">
+            👨🏻Men
+        </a>
+
+        <a href="#">
+            👶🏻Kids
+        </a>
+
+        <a href="#">
+            Best Seller
+        </a>
+
+        <a href="#">
+            Offers
+        </a>
+
+        <a href="#">
+            New Arrivals
+        </a>
+
+        <a href="#">
+            Trendings
+        </a>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="main-center">
+
+        <div class="searchbar">
+
+            <input type="text"
+            placeholder="search here ....">
+
+            <button>
+                search
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ICONS -->
+
+    <div class="main-left">
+
+        <a href="profile.html">
+            <i class="fa fa-user"></i>
+        </a>
+
+        <a href="wishlist.html"
+        class="wishlist-active">
+
+            <i class="fa fa-heart"></i>
+
+        </a>
+
+        <a href="bag.html">
+            <i class="fa fa-shopping-bag"></i>
+        </a>
+
+    </div>
+
+</div>
+
+<!-- TITLE -->
+
+<div class="title">
+
+    <h1>My Wishlist</h1>
+
+    <p>Your Favourite POZARA Fashion Collection</p>
+
+</div>
+
+<!-- WISHLIST PRODUCTS -->
+
+<div class="wishlist-products">
+
+    <!-- PRODUCT 1 -->
+
+    <div class="card">
+
+        <div class="image-box">
+
+            <img src="https://copilot.microsoft.com/th/id/BCO.acda7d68-a8bc-41e7-8020-acc9b0a3d7cd.png">
+            <div class="heart-icon">
+                <i class="fa fa-heart"></i>
+            </div>
+
+        </div>
+
+        <div class="details">
+
+            <h3>POZARA Oversized Tee</h3>
+
+            <div class="type">
+                Printed Casual T-Shirt
+            </div>
+
+            <div class="price">
+                ₹999
+            </div>
+
+            <div class="buttons">
+
+                <button class="cart">
+                    Add To Bag
+                </button>
+
+                <button class="remove">
+                    Remove
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PRODUCT 2 -->
+
+    <div class="card">
+
+        <div class="image-box">
+
+            <img src="https://copilot.microsoft.com/th/id/BCO.8e72da86-3139-4d4c-99ee-03060ee323d8.png">
+            <div class="heart-icon">
+                <i class="fa fa-heart"></i>
+            </div>
+
+        </div>
+
+        <div class="details">
+
+            <h3>POZARA Hoodie</h3>
+
+            <div class="type">
+                Women Street Fashion
+            </div>
+
+            <div class="price">
+                ₹1499
+            </div>
+
+            <div class="buttons">
+
+                <button class="cart">
+                    Add To Bag
+                </button>
+
+                <button class="remove">
+                    Remove
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PRODUCT 3 -->
+
+    <div class="card">
+
+        <div class="image-box">
+
+            <img src="https://copilot.microsoft.com/th/id/BCO.d50c6574-b3d2-4c69-b78f-6674519d3731.png">
+            <div class="heart-icon">
+                <i class="fa fa-heart"></i>
+            </div>
+
+        </div>
+
+        <div class="details">
+
+            <h3>POZARA Co-Ord Set</h3>
+
+            <div class="type">
+                Women Lounge Wear
+            </div>
+
+            <div class="price">
+                ₹1999
+            </div>
+
+            <div class="buttons">
+
+                <button class="cart">
+                    Add To Bag
+                </button>
+
+                <button class="remove">
+                    Remove
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
